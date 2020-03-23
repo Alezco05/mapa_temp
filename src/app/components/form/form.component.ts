@@ -105,4 +105,28 @@ export class FormComponent implements OnInit {
       this.lat = this.marker.getLngLat().lat;
     });
   }
+  // Funcion Para agregar Una PQR
+  click() {
+    const data = {
+      name: this.form.value.name,
+      surname: this.form.value.surname,
+      infrastructure_id: this.form.value.infrastructure_id,
+      in_code: this.form.value.in_code,
+      problem_id: this.form.value.problem_id,
+      neighbor_id: this.form.value.neighbor_id,
+      address: this.form.value.address,
+      issue: this.form.value.issue,
+      phone: this.form.value.phone,
+      lat: this.lat,
+      long: this.long
+    };
+    console.log(data);
+    this.pqrService.createPqr(data).subscribe(
+      resp => {
+        this.router.navigate(['/mapa']);
+        this.form.reset();
+      },
+      err => console.log(err)
+    );
+  }
 }

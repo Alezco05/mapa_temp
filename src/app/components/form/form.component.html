@@ -28,8 +28,32 @@
             <tr>
               <td>
                 <mat-form-field  class="full-width">
-                  <mat-label>Problema</mat-label>
+                  <mat-label>Tipo de Infraestucutura</mat-label>
                   <mat-select required formControlName="infrastructure_id">
+                    <mat-option
+                    *ngFor="let infraestucture of infraestuctures"
+                    [value]="infraestucture.id"
+                    >{{infraestucture.name}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field  class="full-width">
+                  <input
+                    matInput
+                    placeholder="Codigo"
+                    formControlName="in_code"
+                    type="text"
+                  />
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <mat-form-field  class="full-width">
+                  <mat-label>Problema</mat-label>
+                  <mat-select required formControlName="problem_id">
                     <mat-option
                       *ngFor="let problem of problems"
                       [value]="problem.id"
@@ -62,22 +86,34 @@
                   />
                 </mat-form-field>
               </td>
+              <td>
+                <mat-form-field  class="full-width">
+                  <input
+                    matInput
+                    placeholder="Digite la telefono"
+                    formControlName="phone"
+                    type="number"
+                  />
+                </mat-form-field>
+              </td>
             </tr>
             <tr>
               <td>
                 <mat-form-field class="full-width text-area">
                   <mat-label>Mas Informacion</mat-label>
-                  <textarea matInput placeholder="Escriba mas Informacion"></textarea>
+                  <textarea matInput placeholder="Escriba mas Informacion" formControlName="issue"></textarea>
                 </mat-form-field>
               </td>
             </tr>
+            
             <div id="mapa2"></div>
           </table>
           <button
           mat-button
           mat-flat-button
           color="primary"
-          class="btn btn-block mt-4"
+          class="btn btn-block mt-4"  
+          (click)="click()" [disabled]=!form.valid
         >
           Agregar PQR
         </button>
