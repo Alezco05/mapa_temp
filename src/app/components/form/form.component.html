@@ -1,1 +1,88 @@
-<p>form works!</p>
+<div class="container">
+  <div class="row box">
+    <div class="mb-4 mt-2">
+      <div>
+        <h1>Nueva PQR</h1>
+        <form [formGroup]="form" class="form">
+          <table cellspacing="0" class="full-width">
+            <tr>
+              <td>
+                <mat-form-field class="full-width">
+                  <input
+                    matInput
+                    placeholder="Digite el Nombre"
+                    formControlName="name"
+                  />
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field class="full-width">
+                  <input
+                    matInput
+                    placeholder="Digite el Apellido"
+                    formControlName="surname"
+                  />
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <mat-form-field  class="full-width">
+                  <mat-label>Problema</mat-label>
+                  <mat-select required formControlName="infrastructure_id">
+                    <mat-option
+                      *ngFor="let problem of problems"
+                      [value]="problem.id"
+                    >
+                      {{ problem.problem }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field  class="full-width">
+                  <mat-label>Barrios</mat-label>
+                  <mat-select required formControlName="neighbor_id">
+                    <mat-option
+                      *ngFor="let neighbor of neighbors"
+                      [value]="neighbor.id"
+                      >{{ neighbor.name }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <mat-form-field  class="full-width">
+                  <input
+                    matInput
+                    placeholder="Digite la dirección"
+                    formControlName="address"
+                  />
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <mat-form-field class="full-width text-area">
+                  <mat-label>Mas Informacion</mat-label>
+                  <textarea matInput placeholder="Escriba mas Informacion"></textarea>
+                </mat-form-field>
+              </td>
+            </tr>
+            <div id="mapa2"></div>
+          </table>
+          <button
+          mat-button
+          mat-flat-button
+          color="primary"
+          class="btn btn-block mt-4"
+        >
+          Agregar PQR
+        </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
