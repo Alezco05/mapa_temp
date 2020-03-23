@@ -16,12 +16,14 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 // Router
 import {HttpClientModule} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ReportesComponent } from './components/reportes/reportes.component';
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     FormComponent,
-    MapComponent
+    MapComponent,
+    ReportesComponent
   ],
   imports: [
     BrowserModule,

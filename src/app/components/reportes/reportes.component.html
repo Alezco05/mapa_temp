@@ -1,0 +1,40 @@
+<div class="container">
+    <h1>Listado</h1>
+    <div class="row">
+      <div class="col-8">
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            name="filterPost"
+            placeholder="Ej. Barrio: Villa Santos"
+            [(ngModel)]="filterPost"
+          />
+        </div>
+    </div>
+    <div class="col-3">
+        <button class="btn-block btn btn-success" (click)="get_excel()"> Excel</button>
+    </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Barrio</th>
+              <th>Infraestructura</th>
+              <th>Problema</th>
+            </tr>
+          </thead>
+          <tbody>
+           <!--  <tr *ngFor="let pqr of pqrs | filter: filterPost"> -->
+            <tr *ngFor="let pqr of pqrs">
+              <td>{{ pqr.neighbor }}</td>
+              <td>{{ pqr.infrastructure }}</td>
+              <td>{{ pqr.problem}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
